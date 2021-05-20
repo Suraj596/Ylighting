@@ -12,32 +12,31 @@ public class TC4_Tab extends Base {
     '* CREATED DATE        : 16-05-2021
     '* PARAMETERS        : NA
     '***************************************************************************/
-	Base by = new Base();
-	Properties p = new Properties();
+	Base input = new Base();
+	Properties prop = new Properties();
 
 	public TC4_Tab() throws Exception {
 		super();
-		p = by.getPropertyFile();
+		prop = input.getPropertyFile();
 
 	}
 	
 	public void Tab() throws Exception {
 		
-		by.initializeDriver();
-		by.getWebLink(p.getProperty("url"));
-		by.popup();
-		by.inputProperty("account");
-		by.waitFor();
-		by.inputProperty("myaccount");
-		by.inputValues(p.getProperty("email"), by.excelFile("Email"));
-		by.inputValues(p.getProperty("pass"), by.excelFile("Pass"));
-		Thread.sleep(5000);
-		by.inputProperty("clickLoginButton");
-		Thread.sleep(5000);
-		by.inputProperty("ceiling");
-		Thread.sleep(5000);
-		by.inputProperty("chandeliers");
-		by.inputProperty("rect");
+		input.initializeDriver();
+		input.getWebLink(prop.getProperty("url"));
+		input.popup();
+		input.inputProperty("account");
+		input.inputProperty("myaccount");
+		input.inputValues(prop.getProperty("email"), input.excelFile("Email"));
+		input.inputValues(prop.getProperty("pass"), input.excelFile("Pass"));
+		input.Wait();
+		input.inputProperty("clickLoginButton");
+		input.Wait();
+		input.inputProperty("ceiling");
+		input.Wait();
+		input.inputProperty("chandeliers");
+		input.inputProperty("rect");
 		driver.close();
 		driver.quit();
 		

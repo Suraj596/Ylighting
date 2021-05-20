@@ -3,8 +3,8 @@ package pages;
 
 import java.util.Properties;
 
-
-
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 
 import root.Base;
 
@@ -18,32 +18,34 @@ public class TC1_CreateAccount extends Base {
     '* CREATED DATE        : 16-05-2021
     '* PARAMETERS        : NA
     '***************************************************************************/
-	Base by = new Base();
-	Properties p = new Properties();
+	Base input = new Base();
+	Properties prop = new Properties();
 
 	public TC1_CreateAccount() throws Exception {
 		super();
-		p = by.getPropertyFile();
+		prop = input.getPropertyFile();
 
 	}
 	
 public void CreateAccount() throws Exception {
 		
-		by.initializeDriver();
-		by.getWebLink(p.getProperty("url"));
-		by.popup();
-		by.inputProperty("account");
-		by.waitFor();
-		by.inputProperty("myaccount");
-		by.inputValues(p.getProperty("firstname"), by.excelFile("Fname"));
-		by.inputValues(p.getProperty("lastname"), by.excelFile("Lname"));
-		by.inputValues(p.getProperty("emailadd"), by.excelFile("Email"));
-		by.inputValues(p.getProperty("confirmemailadd"), by.excelFile("Email"));
-		by.inputValues(p.getProperty("password"), by.excelFile("Pass"));
-		by.inputValues(p.getProperty("confirmpass"), by.excelFile("Pass"));
-		Thread.sleep(5000);
-		by.inputProperty("ClickCreateaccountbutton");
+	input.initializeDriver();
+	input.getWebLink(prop.getProperty("url"));
+	input.popup();
+	input.inputProperty("account");
+	input.inputProperty("myaccount");
+	input.inputValues(prop.getProperty("firstname"), input.excelFile("Fname"));
+	input.inputValues(prop.getProperty("lastname"), input.excelFile("Lname"));
+	input.inputValues(prop.getProperty("emailadd"), input.excelFile("Email"));
+	input.inputValues(prop.getProperty("confirmemailadd"), input.excelFile("Email"));
+	input.inputValues(prop.getProperty("password"), input.excelFile("Pass"));
+	input.inputValues(prop.getProperty("confirmpass"), input.excelFile("Pass"));
+	input.Wait();
+		Actions action=new Actions(driver);
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		input.inputProperty("ClickCreateaccountbutton");
+		input.Wait();
 		driver.close();
-
+		driver.quit();
 }
 }

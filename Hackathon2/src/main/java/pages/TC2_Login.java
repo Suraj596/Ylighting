@@ -13,30 +13,26 @@ public class TC2_Login extends Base{
     '* PARAMETERS        : NA
     '***************************************************************************/
 	
-	Base by = new Base();
-	Properties p = new Properties();
+	Base input = new Base();
+	Properties prop = new Properties();
 
 	public TC2_Login() throws Exception {
 		super();
-		p = by.getPropertyFile();
+		prop = input.getPropertyFile();
 
 	}
 	
 	public void Login() throws Exception {
 		
 	
-		by.initializeDriver();
-		by.getWebLink(p.getProperty("url"));
-		by.popup();
-		by.inputProperty("account");
-		by.waitFor();
-		by.inputProperty("myaccount");
-		by.inputValues(p.getProperty("email"), by.excelFile("Email"));
-		by.inputValues(p.getProperty("pass"), by.excelFile("Pass"));
-		Thread.sleep(5000);
-		by.inputProperty("clickLoginButton");
-		Thread.sleep(5000);
-		by.inputProperty("account");
+		input.initializeDriver();
+		input.getWebLink(prop.getProperty("url"));
+		input.popup();
+		input.inputProperty("account");
+		input.inputProperty("myaccount");
+		input.inputValues(prop.getProperty("email"), input.excelFile("Email"));
+		input.inputValues(prop.getProperty("pass"), input.excelFile("Pass"));
+		input.inputProperty("clickLoginButton");
 		driver.close();
 		driver.quit();
 		

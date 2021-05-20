@@ -6,7 +6,7 @@
       <class name="testrunner.YlightingRunner">
         <methods>
           <include name="beforeMethod"/>
-          <include name="TC5_HomePage"/>
+          <include name="TC17_Logout"/>
         </methods>
       </class> <!-- testrunner.YlightingRunner -->
     </classes>
