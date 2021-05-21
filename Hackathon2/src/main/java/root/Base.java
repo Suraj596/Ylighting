@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +27,7 @@ import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import utilities.LoggerClass;
 
-public class Base {
+public class Base {  //BaseClass
 
 	public static WebDriver driver;
 	public static Properties obj = new Properties();
@@ -98,7 +99,8 @@ public class Base {
 	
 	public void Wait() throws InterruptedException {
 		
-		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;  
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 5000);");
 	}
 	
 	public void waitFor() {

@@ -6,7 +6,7 @@ import root.Base;
 
 public class TC16_Quantity extends Base{
 	/****************************************************************************
-    '* NAME                : Quantity
+    '* NAME                : Quantity   //naming  conventions
     '* APPLICATION NAME    : Ylighting
     '* CREATED BY        : Suraj Sahoo
     '* CREATED DATE        : 16-05-2021

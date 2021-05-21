@@ -82,7 +82,7 @@ public class YlightingRunner extends Base {
 		
 	}
 
-	//@Test(priority = 0, enabled = true)
+	@Test(priority = 0, enabled = true)
 	public void TC1_CreateAccount() throws Exception {
 
 		createaccount.CreateAccount();
@@ -184,7 +184,7 @@ public class YlightingRunner extends Base {
 		logout.Logout();
     }
 	
-	@Test(priority = 17, enabled = true)
+	//@Test(priority = 17, enabled = true)
 	public void TC18_Logo() throws Exception {
 
 		logo.Logo();
